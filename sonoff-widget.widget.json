@@ -1,0 +1,27 @@
+{
+    "template": "<style>\n    .smallnumber {font-size:0.8em; \n                 \tposition: absolute;\n  \t\t\t\t\t\t\t\ttop: 0;\n   \t\t\t\t\t\t\t  right: 0;}\n\n    .normaltext {font-size:0.8em; \n               \tposition: absolute;\n  \t\t\t\t\t\t\t\tbottom: 0;\n   \t\t\t\t\t\t\t  left: 0;}\n \t\t .switch-content {\n  \t\t\t\t\t\t\tmargin: auto;\n  \t\t\t\t\t\t\ttext-align: center;}\n</style>\n<div class=\"icon backdrop\" ng-class=\"{backdrop: backdrop, center: center, inline: inline}\" style=\"width: 100%; height: 100%; margin: auto\">\n  <img height=\"100%\" ng-class=\"{colorize: colorize }\" class=\"icon-tile-backdrop ng-scope colorize\" ng-src=\"assets/icons/{{config.icon_iconset}}/{{config.icon}}.svg\" src=\"assets/icons/{{config.icon_iconset}}/{{config.icon}}.svg\"></img>\n</div>\n<label class=\"smallnumber\"><i class=\"smallnumber\">{{itemValue(config.item_rssi)}}%</i></label>\n<p style=\"color: #DDEEFF\">{{ngModel.name}}</p>\n<label class=\"normaltext\"  style=\"color: {{itemValue(config.item_status)=='ON' ? '#0db9f0' : 'RED'}}\"><i class=\"normaltext\">{{itemValue(config.item_status)}}</i></label>\n \n<button class=\"btn\" style=\"width: 100%; height: 100%; background: inherit; padding: 0; outline: none;\"\n  ng-click=\"sendCmd(config.item_name, itemValue(config.item_name) == 'ON' ? 'OFF' : 'ON')\">\n\t<div class=\"switch-content\">\n\t\t<div class=\"value\" ng-class=\"{backdrop: backdrop, center: center, inline: inline}\">\n\t\t\t<div class=\"switch-icon\">\n\t\t\t\t<span style=\"color: {{itemValue(config.item_name)=='ON' ? '#0db9f0' : '#7B879C'}}\">\n\t\t\t\t\t<i class=\"glyphicon glyphicon-off\" ng-show=\"itemValue(config.item_name)=='OFF'\"></i>\n\t\t\t\t\t<i class=\"glyphicon glyphicon-record\" ng-show=\"itemValue(config.item_name)=='ON'\"></i>\n\t\t\t\t</span>\n      </div>\n    </div>\n  </div>\n</button>",
+    "settings": [
+        {
+            "type": "item",
+            "id": "item_name",
+            "label": "Item Name"
+        },
+        {
+            "type": "item",
+            "id": "item_rssi",
+            "label": "RSSI Signal"
+        },
+        {
+            "type": "item",
+            "label": "LWT",
+            "id": "item_status"
+        },
+        {
+            "type": "icon",
+            "id": "icon"
+        }
+    ],
+    "name": "SonOff Switch",
+    "author": "Ham",
+    "readme_url": "https://community.openhab.org/t/22580"
+}
